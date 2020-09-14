@@ -14,7 +14,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class TokenService {
 	
-	private static final long tempoExpiracao = 180000;
+	private static final long tempoExpiracao = 1800000;
 	private String chave = "Chave";
 	
 	public String gerarToken(Usuario usuario) {
