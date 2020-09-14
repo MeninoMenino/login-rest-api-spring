@@ -1,6 +1,8 @@
 # login-rest-api-spring
 
-Descrição: Rest API desenvolvida com Spring, usando Hibernate/JPA para persistência de dados, e JWT para autenticação de login usando token de acesso.
+-Descrição: Rest API desenvolvida com Spring, usando Hibernate/JPA para persistência de dados, e JWT para autenticação de login usando token de acesso.
+
+-Arquivo de criação do banco de dados (SQL): loginapi-db.sql
 
 -----Endpoints-----
 
