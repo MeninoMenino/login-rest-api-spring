@@ -79,8 +79,7 @@ public class UsuarioController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario inserir(@Valid @RequestBody Usuario usuario){
-		Optional<Usuario> emailExistente = usuarioRepository.findByEmail(usuario.getEmail());
-		if(emailExistente.isPresent() && usuario.getEmail().equals(emailExistente.get().getEmail())) {
+		if(usuarioCadastroService.verificarEmailExistente(usuario.getEmail())) {
 			throw new EmailJaCadastradoException();
 		} else {
 			return usuarioRepository.save(usuario);
