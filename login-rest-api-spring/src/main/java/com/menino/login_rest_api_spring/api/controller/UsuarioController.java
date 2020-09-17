@@ -101,7 +101,7 @@ public class UsuarioController {
 				return ResponseEntity.notFound().build();
 			} else {
 				usuario.setId(usuarioBanco.get().getId());
-				return ResponseEntity.ok(usuarioCadastroService.validarEmail(usuario));
+				return ResponseEntity.ok(usuarioCadastroService.verificarEmailAlterado(usuario));
 			}
 		} else {
 			throw new TokenInvalidoException();

@@ -15,13 +15,22 @@ public class UsuarioCadastroService {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
-	//Valida se o email informado já está cadastrado em outro registro
-	public Usuario validarEmail(Usuario usuario) {
+	//Valida se o email informado no PUT já está cadastrado em outro registro
+	public Usuario verificarEmailAlterado(Usuario usuario) {
 		Optional<Usuario> usuarioExistente = usuarioRepository.findByEmail(usuario.getEmail());
 		if(usuarioExistente.isPresent() && usuarioExistente.get().getId() != usuario.getId()) {
 			throw new EmailJaCadastradoException();
 		} else {
 			return salvar(usuario);
+		}
+	}
+	
+	//Verifica se o email informado já está cadastrado
+	public boolean verificarEmailExistente(String email) {
+		if(usuarioRepository.findByEmail(email).isPresent()) {
+			return true;
+		} else {
+			return false;
 		}
 	}
 	
